@@ -2,7 +2,7 @@
 // URL GOOGLE APPS SCRIPT
 //=================================================
 
-const URL_WEB_APP = "https://script.google.com/macros/s/AKfycbzEpKtmiRQMnJ4j57g3_S-lU_bdxJLTUGf-1LaNSVLu3n5IrR9JRou7siL-_vtaqvAhxg/exec";
+const URL_WEB_APP = "https://script.google.com/macros/s/AKfycbyP-WQaGUN3ecSz6G0mB75BsVkNOM6rvYB95Ae8_AWAEiu4_-X88ycehrGHd-x0w2Be-g/exec";
 
 
 //=================================================
