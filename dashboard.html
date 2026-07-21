@@ -17,7 +17,7 @@
 <h2>MI MA'ARIF 2 KENTENGSARI</h2>
 
 <p>Selamat Datang</p>
-<p>Fredi Setiyawan</p>
+<p id="namaGuru">Guru</p>
 
 <button onclick="absenMasuk()">ABSEN MASUK</button>
 
@@ -39,6 +39,12 @@
 </div>
 
 <script src="script.js"></script>
+<script>
+const dataGuru = JSON.parse(localStorage.getItem("guruLogin"));
 
+if (dataGuru) {
+  document.getElementById("namaGuru").innerHTML = dataGuru.nama;
+}
+</script>
 </body>
 </html>
