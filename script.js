@@ -8,7 +8,55 @@ const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbwUBIKXQyBDCC2K5VRu
 //===========================
 // LOGIN
 //===========================
+const guru = [
 
+{username:"fredi",password:"12345",nama:"Fredi Setiyawan"},
+{username:"hari",password:"12345",nama:"Hariyanto"},
+{username:"susan",password:"12345",nama:"Susanah"},
+{username:"wawa",password:"12345",nama:"Wawa Lestari"},
+{username:"rita",password:"12345",nama:"Rita Kusumastuti"},
+{username:"khomsi",password:"12345",nama:"Khomsibun Rohman"},
+{username:"siti",password:"12345",nama:"Siti Zahrotun"},
+{username:"mujib",password:"12345",nama:"Mujib Ridwan"},
+{username:"yuli",password:"12345",nama:"Yuli Lusiana"},
+{username:"khalimah",password:"12345",nama:"Khalimatun Nasihah"},
+{username:"nurlita",password:"12345",nama:"Nurlita Utami"}
+
+];
+
+
+function login(){
+
+let username = document.getElementById("username").value;
+let password = document.getElementById("password").value;
+
+let ditemukan = false;
+
+for(let i=0;i<guru.length;i++){
+
+if(username==guru[i].username && password==guru[i].password){
+
+localStorage.setItem("namaGuru",guru[i].nama);
+
+alert("Login Berhasil");
+
+window.location.href="dashboard.html";
+
+ditemukan = true;
+
+break;
+
+}
+
+}
+
+if(!ditemukan){
+
+alert("Username atau Password salah.");
+
+}
+
+}
 function login() {
 
     let username = document.getElementById("username").value;
@@ -78,12 +126,37 @@ function kirimData(nama, status) {
 // ABSEN MASUK
 //===========================
 
-function absenMasuk() {
+function absenMasuk(){
 
-    let nama = localStorage.getItem("namaGuru");
+let nama = localStorage.getItem("namaGuru");
 
-    kirimData(nama, "Hadir");
+kirimData(nama,"Hadir");
 
+}
+
+function absenPulang(){
+
+let nama = localStorage.getItem("namaGuru");
+
+kirimData(nama,"Pulang");
+
+}
+
+function izin(){
+
+let nama = localStorage.getItem("namaGuru");
+
+kirimData(nama,"Izin");
+
+}
+
+function sakit(){
+
+let nama = localStorage.getItem("namaGuru");
+
+kirimData(nama,"Sakit");
+
+}
 }
 
 
