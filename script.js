@@ -65,7 +65,7 @@ status : status
 
 };
 
-fetch("https://script.google.com/macros/s/AKfycbzkx2iBfp0728dsK9EV3nNK4nau0K1W7PFE6tQO9zmxRx_bltDBJblDVGDHGI3GOVOT/exec",{
+fetch(https://script.google.com/macros/s/AKfycbzoeaeK_IdjQI4aAtXE6YSxwKyFvHTyLkqBvINoJhjcFQfYCOTdeHPLjiSBe5egJVw2RA/exec,{
 
 method : "POST",
 
