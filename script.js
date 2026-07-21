@@ -1,93 +1,186 @@
-function login(){
+//===========================
+// URL GOOGLE APPS SCRIPT
+//===========================
 
-let username = document.getElementById("username").value;
-let password = document.getElementById("password").value;
+const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbwUBIKXQyBDCC2K5VRutoio7VHTRTjfJBdE7e6QhPxBou6BGHVOjcF3SVKhhNelnBTOIw/exec";
 
-if(username=="fredi" && password=="12345"){
 
-    alert("Login Berhasil");
-    window.location.href="dashboard.html";
+//===========================
+// LOGIN
+//===========================
 
-}else{
+function login() {
 
-    alert("Username atau Password salah");
+    let username = document.getElementById("username").value;
+    let password = document.getElementById("password").value;
 
-}
+    if (username == "fredi" && password == "12345") {
 
-}
-function absenMasuk(){
+        alert("Login Berhasil");
 
-kirimData("Fredi Setiyawan","Hadir");
+        localStorage.setItem("namaGuru", "Fredi Setiyawan");
 
-alert("Absen Masuk Berhasil");
+        window.location.href = "dashboard.html";
 
-}
+    } else {
 
-function absenPulang(){
+        alert("Username atau Password Salah");
 
-kirimData("Fredi Setiyawan","Pulang");
-
-alert("Absen Pulang Berhasil");
-
-}
-
-function izin(){
-
-kirimData("Fredi Setiyawan","Izin");
-
-alert("Data Izin Berhasil");
+    }
 
 }
 
-function sakit(){
 
-kirimData("Fredi Setiyawan","Sakit");
+//===========================
+// KIRIM DATA KE SPREADSHEET
+//===========================
 
-alert("Data Sakit Berhasil");
+function kirimData(nama, status) {
+
+    let sekarang = new Date();
+
+    let data = {
+
+        nama: nama,
+        tanggal: sekarang.toLocaleDateString("id-ID"),
+        jam: sekarang.toLocaleTimeString("id-ID"),
+        status: status
+
+    };
+
+    fetch(WEB_APP_URL, {
+
+        method: "POST",
+        body: JSON.stringify(data)
+
+    })
+
+    .then(response => response.text())
+
+    .then(result => {
+
+        alert(result);
+
+    })
+
+    .catch(error => {
+
+        alert("Data gagal dikirim.");
+
+        console.log(error);
+
+    });
 
 }
 
-function riwayatAbsensi() {
 
-alert("Riwayat Absensi Akan Ditampilkan");
+//===========================
+// ABSEN MASUK
+//===========================
 
-}
-function kirimData(nama, status){
+function absenMasuk() {
 
-let sekarang = new Date();
+    let nama = localStorage.getItem("namaGuru");
 
-let data = {
-
-nama : nama,
-tanggal : sekarang.toLocaleDateString(),
-jam : sekarang.toLocaleTimeString(),
-status : status
-
-};
-
-fetch(https://script.google.com/macros/s/AKfycbzoeaeK_IdjQI4aAtXE6YSxwKyFvHTyLkqBvINoJhjcFQfYCOTdeHPLjiSBe5egJVw2RA/exec,{
-
-method : "POST",
-
-body : JSON.stringify(data)
-
-});
+    kirimData(nama, "Hadir");
 
 }
+
+
+//===========================
+// ABSEN PULANG
+//===========================
+
+function absenPulang() {
+
+    let nama = localStorage.getItem("namaGuru");
+
+    kirimData(nama, "Pulang");
+
+}
+
+
+//===========================
+// IZIN
+//===========================
+
+function izin() {
+
+    let nama = localStorage.getItem("namaGuru");
+
+    kirimData(nama, "Izin");
+
+}
+
+
+//===========================
+// SAKIT
+//===========================
+
+function sakit() {
+
+    let nama = localStorage.getItem("namaGuru");
+
+    kirimData(nama, "Sakit");
+
+}
+
+
+//===========================
+// LOGOUT
+//===========================
 
 function logout() {
 
-window.location.href = "index.html";
+    localStorage.clear();
+
+    alert("Logout Berhasil");
+
+    window.location.href = "index.html";
 
 }
-if("serviceWorker" in navigator){
 
-navigator.serviceWorker.register("service-worker.js")
 
-.then(function(){
+//===========================
+// EXPORT EXCEL
+//===========================
 
-console.log("PWA Berhasil");
+function exportExcel() {
 
-});
+    alert("Fitur Export Excel akan dibuat dari Google Spreadsheet.");
+
+}
+
+
+//===========================
+// EXPORT PDF
+//===========================
+
+function exportPDF() {
+
+    alert("Fitur Export PDF akan dibuat dari Google Spreadsheet.");
+
+}
+
+
+//===========================
+// SERVICE WORKER PWA
+//===========================
+
+if ("serviceWorker" in navigator) {
+
+    navigator.serviceWorker.register("service-worker.js")
+
+    .then(() => {
+
+        console.log("PWA Aktif");
+
+    })
+
+    .catch((error) => {
+
+        console.log(error);
+
+    });
 
 }
