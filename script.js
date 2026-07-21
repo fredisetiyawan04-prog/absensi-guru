@@ -2,24 +2,25 @@
 // URL GOOGLE APPS SCRIPT
 //===========================
 
-const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbwUBIKXQyBDCC2K5VRutoio7VHTRTjfJBdE7e6QhPxBou6BGHVOjcF3SVKhhNelnBTOIw/exec";
+const WEB_APP_URL = "MASUKKAN_URL_WEB_APP_DISINI";
 
 
 //===========================
 // LOGIN
 //===========================
+
 const guru = [
 
 {username:"fredi",password:"12345",nama:"Fredi Setiyawan"},
 {username:"hari",password:"12345",nama:"Hariyanto"},
-{username:"susan",password:"12345",nama:"Susanah"},
+{username:"susana",password:"12345",nama:"Susanah"},
 {username:"wawa",password:"12345",nama:"Wawa Lestari"},
 {username:"rita",password:"12345",nama:"Rita Kusumastuti"},
-{username:"khomsi",password:"12345",nama:"Khomsibun Rohman"},
-{username:"siti",password:"12345",nama:"Siti Zahrotun"},
+{username:"khom",password:"12345",nama:"Khomsibun Rohman"},
+{username:"atun",password:"12345",nama:"Siti Zahrotun"},
 {username:"mujib",password:"12345",nama:"Mujib Ridwan"},
 {username:"yuli",password:"12345",nama:"Yuli Lusiana"},
-{username:"khalimah",password:"12345",nama:"Khalimatun Nasihah"},
+{username:"khalim",password:"12345",nama:"Khalimatun Nasihah"},
 {username:"nurlita",password:"12345",nama:"Nurlita Utami"}
 
 ];
@@ -57,27 +58,6 @@ alert("Username atau Password salah.");
 }
 
 }
-function login() {
-
-    let username = document.getElementById("username").value;
-    let password = document.getElementById("password").value;
-
-    if (username == "fredi" && password == "12345") {
-
-        alert("Login Berhasil");
-
-        localStorage.setItem("namaGuru", "Fredi Setiyawan");
-
-        window.location.href = "dashboard.html";
-
-    } else {
-
-        alert("Username atau Password Salah");
-
-    }
-
-}
-
 
 //===========================
 // KIRIM DATA KE SPREADSHEET
@@ -157,8 +137,6 @@ let nama = localStorage.getItem("namaGuru");
 kirimData(nama,"Sakit");
 
 }
-}
-
 
 //===========================
 // ABSEN PULANG
