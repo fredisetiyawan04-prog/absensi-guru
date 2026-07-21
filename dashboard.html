@@ -17,7 +17,7 @@
 <h2>MI MA'ARIF 2 KENTENGSARI</h2>
 
 <p>Selamat Datang</p>
-<p id="namaGuru">Guru</p>
+<h2><span id="namaGuru">Guru</span></h2>
 
 <button onclick="absenMasuk()">ABSEN MASUK</button>
 
@@ -39,12 +39,15 @@
 </div>
 
 <script src="script.js"></script>
-<script>
-const dataGuru = JSON.parse(localStorage.getItem("guruLogin"));
 
-if (dataGuru) {
-  document.getElementById("namaGuru").innerHTML = dataGuru.nama;
+<script>
+
+let nama = localStorage.getItem("namaGuru");
+
+if(nama){
+  document.getElementById("namaGuru").innerHTML = nama;
 }
+
 </script>
 </body>
 </html>
