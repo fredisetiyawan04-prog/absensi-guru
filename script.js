@@ -2,7 +2,7 @@
 // URL GOOGLE APPS SCRIPT
 //=================================================
 
-const URL_WEB_APP = "PASTE_URL_WEB_APP_DISINI";
+const URL_WEB_APP = "https://script.google.com/macros/s/AKfycbzqIIVtx83RTccksKWeA_dTckgrYLoz8EKX9jexprJZhFMBybYpXnodicVe_-pUdy2KgQ/exec";
 
 
 //=================================================
